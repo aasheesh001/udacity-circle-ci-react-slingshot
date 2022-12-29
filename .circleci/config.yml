@@ -10,9 +10,8 @@ jobs:
       - save_cache: 
           key: "npm-packages"
           path:
-            - /src/node_module
+            - /src/node_modules
       - run: npm run lint
-
   test:
     docker:
       - image: circleci/node:13.8.0
@@ -23,7 +22,6 @@ jobs:
             - "npm-packages"
       - run: npm i
       - run: npm run test
-
   analyze:
     docker:
       - image: circleci/node:13.8.0
